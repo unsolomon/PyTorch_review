@@ -1,0 +1,37 @@
+# 자원을 아끼기 위한 전략 세우기
+
+1. 부동 소수점방식(01) 
+고정 소수점
+# 소수점 둘째 자리까지 항상 표현
+fixed_point = 123.45
+부동 소수점
+# 가수부와 지수부로 나누어 표현
+mantissa = 1.2345
+exponent = 4
+floating_point = mantissa * (10 ** exponent)  # 1.2345 * 10000 = 12345
+
+소수점 위치를 자유롭게 바꿔서 훨씬 넓은 범위의 수를 같은 메모리로 저장하여 부동 소수점의 자원 절약 포인트
+
+예시 1: 메모리 사용량 비교
+import numpy as np
+
+arr_fp32 = np.zeros(1000000, dtype=np.float32)  # 32비트 부동소수점
+arr_fp16 = np.zeros(1000000, dtype=np.float16)  # 16비트 부동소수점
+
+print(arr_fp32.nbytes)  # 4,000,000 bytes (약 4MB)
+print(arr_fp16.nbytes)  # 2,000,000 bytes (약 2MB)
+
+예시 2: 연산 속도 및 정확도 비교 (AI 모델)
+# PyTorch 예시
+import torch
+
+a = torch.randn(10000, 10000, dtype=torch.float32)
+b = torch.randn(10000, 10000, dtype=torch.float32)
+
+# float32 연산
+%timeit torch.matmul(a, b)
+
+# float16 연산 (GPU에서 더 빠름)
+a16 = a.half()
+b16 = b.half()
+%timeit torch.matmul(a16, b16)
