@@ -1,3 +1,7 @@
+# 05. Pytorch_operations연산자및함수들
+
+
+
 ## cat과 stack 의 차이
 
 - **cat은 기존 차원 중 하나를 따라 단순히 이어붙임** (차원 수 유지)
