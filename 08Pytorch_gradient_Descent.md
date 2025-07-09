@@ -2,14 +2,15 @@
 
 - 머신러닝에서 모델의 예측값과 실제값의 차이(손실)를 최소화하기 위해 사용되는 최적화 알고리즘입니다.
 - 손실 함수의 값을 가장 작게 만드는 가중치와 바이어스를 찾는 것이 목적입니다.
-
+$$
 ## 경사하강법의 수학적 공식
-
+$$
 
 ### 1. 손실 함수 예시 (평균제곱오차, MSE)
 
-L(w, b) = \frac{1}{n} \sum_{i=1}^{n} [ t_i - (w x_i + b) ]^2
-
+$$
+    L(w, b) = \frac{1}{n} \sum_{i=1}^{n} [ t_i - (w x_i + b) ]^2
+$$
 - tᵢ : 실제값  
 - xᵢ : 입력값  
 - w : 가중치 (weight)  
@@ -22,26 +23,26 @@ L(w, b) = \frac{1}{n} \sum_{i=1}^{n} [ t_i - (w x_i + b) ]^2
 
 - **가중치 w에 대한 편미분:**
 
-\frac{\partial L(w, b)}{\partial w} = \frac{1}{n} \sum_{i=1}^{n} [ -2 (t_i - y_i) x_i ]
+    \frac{\partial L(w, b)}{\partial w} = \frac{1}{n} \sum_{i=1}^{n} [ -2 (t_i - y_i) x_i ]
 
 (여기서 y_i = w x_i + b)
 
 - **바이어스 b에 대한 편미분:**
 
-\frac{\partial L(w, b)}{\partial b} = \frac{1}{n} \sum_{i=1}^{n} [ -2 (t_i - y_i) ]
+    \frac{\partial L(w, b)}{\partial b} = \frac{1}{n} \sum_{i=1}^{n} [ -2 (t_i - y_i) ]
 
 ---
 
 ### 3. 파라미터(가중치, 바이어스) 업데이트 공식
 
 - **가중치 w 업데이트:**
-
-w_{\text{new}} = w - \alpha \frac{\partial L(w, b)}{\partial w}
-
+$$
+    w_{\text{new}} = w - \alpha \frac{\partial L(w, b)}{\partial w}
+$$
 - **바이어스 b 업데이트:**
-
-b_{\text{new}} = b - \alpha \frac{\partial L(w, b)}{\partial b}
-
+$$
+    b_{\text{new}} = b - \alpha \frac{\partial L(w, b)}{\partial b}
+$$
 - α: 학습률(learning rate)
 
 
