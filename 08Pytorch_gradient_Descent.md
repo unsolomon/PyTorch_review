@@ -9,41 +9,50 @@ $$
 ### 1. 손실 함수 예시 (평균제곱오차, MSE)
 
 $$
-    L(w, b) = \frac{1}{n} \sum_{i=1}^{n} [ t_i - (w x_i + b) ]^2
+L(w, b) = \frac{1}{n} \sum_{i=1}^{n} [ t_i - (w x_i + b) ]^2
 $$
+
 - tᵢ : 실제값  
 - xᵢ : 입력값  
-- w : 가중치 (weight)  
-- b : 바이어스 (bias)  
+- w : 가중치  
+- b : 바이어스  
 - n : 데이터 개수  
 
 ---
 
 ### 2. 손실 함수의 기울기(미분값, Gradient)
 
-- **가중치 w에 대한 편미분:**
+**가중치 w에 대한 편미분:**
 
-    \frac{\partial L(w, b)}{\partial w} = \frac{1}{n} \sum_{i=1}^{n} [ -2 (t_i - y_i) x_i ]
+$$
+\frac{\partial L(w, b)}{\partial w} = \frac{1}{n} \sum_{i=1}^{n} [ -2 (t_i - y_i) x_i ]
+$$
 
-(여기서 y_i = w x_i + b)
+**바이어스 b에 대한 편미분:**
 
-- **바이어스 b에 대한 편미분:**
+$$
+\frac{\partial L(w, b)}{\partial b} = \frac{1}{n} \sum_{i=1}^{n} [ -2 (t_i - y_i) ]
+$$
 
-    \frac{\partial L(w, b)}{\partial b} = \frac{1}{n} \sum_{i=1}^{n} [ -2 (t_i - y_i) ]
+(여기서 yᵢ = w xᵢ + b)
 
 ---
 
 ### 3. 파라미터(가중치, 바이어스) 업데이트 공식
 
-- **가중치 w 업데이트:**
+**가중치 w 업데이트:**
+
 $$
-    w_{\text{new}} = w - \alpha \frac{\partial L(w, b)}{\partial w}
+w_{\text{new}} = w - \alpha \frac{\partial L(w, b)}{\partial w}
 $$
-- **바이어스 b 업데이트:**
+
+**바이어스 b 업데이트:**
+
 $$
-    b_{\text{new}} = b - \alpha \frac{\partial L(w, b)}{\partial b}
+b_{\text{new}} = b - \alpha \frac{\partial L(w, b)}{\partial b}
 $$
-- α: 학습률(learning rate)
+
+- α: 학습률 (learning rate)
 
 
 
